@@ -72,6 +72,8 @@ substitutions = {
 def addAffixes(string, reverse=False):
     if reverse:
         string = string.split(" ")
+        string[0] = f"{string[0]} "
+        string[-1] = f" {string[-1]}"
         if string[0] in prefixes:
             string.pop(0)
         if string[-1] in suffixes:
