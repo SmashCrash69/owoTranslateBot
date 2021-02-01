@@ -33,7 +33,7 @@ urls = {"dick": set(), "ass": set(), "tits": set(), "pussy": set(), "hentai": se
 image_types = ("jpg", "jpeg", "png", "gif")
 counter = 0
 total = 100
-conn = praw.Reddit(client_id="clOSZ03dmMjihQ", client_secret="prke_ICjWx3qLRC8XYCErQYZu7I0aA", user_agent="owoTranslatorBot by mlgmj_0")
+conn = praw.Reddit(client_id="CLIENT_ID", client_secret="CLIENT_SECRET", user_agent="owoTranslatorBot by mlgmj_0")
 
 def write(urls):
     newUrls = {}
