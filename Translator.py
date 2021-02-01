@@ -74,9 +74,9 @@ def addAffixes(string, reverse=False):
         string = string.split(" ")
         string[0] = f"{string[0]} "
         string[-1] = f" {string[-1]}"
-        if string[0] in prefixes:
+        while string[0] in prefixes:
             string.pop(0)
-        if string[-1] in suffixes:
+        while string[-1] in suffixes:
             string.pop(-1)
         string = " ".join(string)
     else:
@@ -103,12 +103,14 @@ def substitute(string, reverse=False):
 
 def owo(string, translate=False, reverse=False):
     if translate:
-        return substitute(string)
+        newString = substitute(string)
 
+    elif reverse:
+        newString = substitute(addAffixes(string, reverse=True), reverse=True)
+    else: 
+        newString = addAffixes(substitute(string))
+    if len(newString) > 2000:
+        return addAffixes(substitute("That message is too long to send"))
     else:
-        return (
-            addAffixes(substitute(string, reverse=True), reverse=True)
-            if reverse
-            else addAffixes(substitute(string))
-        )
+        return newString
 
